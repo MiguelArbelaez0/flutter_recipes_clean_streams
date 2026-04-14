@@ -10,16 +10,11 @@ String searchModelToMap(SearchModel data) => json.encode(data.toMap());
 
 class SearchModel extends SearchRecipe {
   SearchModel({
-    int? offset,
-    int? number,
-    List<RecipeModel>? results,
-    int? totalResults,
-  }) : super(
-         offset: offset,
-         number: number,
-         results: results,
-         totalResults: totalResults,
-       );
+    super.offset,
+    super.number,
+    List<RecipeModel>? super.results,
+    super.totalResults,
+  });
 
   factory SearchModel.fromMap(Map<String, dynamic> json) => SearchModel(
     offset: json["offset"],

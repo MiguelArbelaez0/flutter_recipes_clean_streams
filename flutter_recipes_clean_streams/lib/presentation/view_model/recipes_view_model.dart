@@ -41,17 +41,17 @@ class RecipesViewModel {
 
   Stream<List<Recipe>> get resultStream => _resultController.stream;
 
-  invokeRecipes() async {
+  Future<void> invokeRecipes() async {
     recipes = await _getRandomRecipeUseCase.invokeRandomRecipes();
     _recipesController.add(recipes);
   }
 
-  invokeRecipesInfo(int recipeId) async {
+  Future<void> invokeRecipesInfo(int recipeId) async {
     Recipe recipe = await _getRecipesInfoUseCase.invokeRecipesInfo(recipeId);
     _recipeController.add(recipe);
   }
 
-  searchRecipes(String query) async {
+  Future<void> searchRecipes(String query) async {
     if (query.length > 3) {
       SearchRecipe queryResults = await _searchRecipesUsesCases
           .invokeResultsRecipes(query);
